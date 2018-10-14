@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <title>包月会员专区-详情</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=720,width=device-width, initial-scale=1,  initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="" />
+
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" href="/game/mobile_detail.css" />
+    <script type='text/javascript' src='/jquery-1.7.2.min.js'></script>
+</head>
+<body>
+    <div class="g-mn">
+        <input type='hidden' id='uid' value="">
+        <input type='hidden' id='isvip' value="">
+        <div class="index-banner proportion" F="0.40625">
+        <img style='width:100%' src="{$goods['img']}" alt="">
+    </div>
+    <div class="m-box">
+        <div class="m-box-hd">
+            <div class="tt">会员产品包：</div>
+        </div>
+        <div class="m-box-mn">
+            <ul class="m-article-list">
+                <li  class="">
+                    会员包产品简介：{$goods['title']}
+                </li>
+            </ul>
+        </div>
+        <div class="m-box-hd">
+            <div class="tt">会员权益：</div>
+        </div>
+        <div class="m-box-mn">
+            <ul class="m-article-list">
+                <li  class="">
+                    {$goods['desc']}
+                </li>
+            </ul>
+        </div>
+        <div class="m-box-hd">
+            <div class="tt">产品价格：{$goods['price']}元/月</div>
+        </div>
+        <div class="m-box-mn">
+            <div class='test'>
+                <ul class="m-icon-list f-cb">
+                    <span class='test1'>
+                        <li>
+                            <a target="_blank" href="">
+                                <img src="/game/game_icon.jpg" alt="" />
+                            </a>
+                        </li>
+                    </span>
+
+                    <span class='test2'>
+                        <li>
+                            <div style="position:relative;width:100px;height:100px;">
+                                <img src="/game/title3.png" alt="" />
+                                <div style="position:absolute;width:100px;height:100px;z-indent:2;left:0;top:0;">
+                                   <a target="_blank" href="{if($c_id)} javascript:alert('你已登陆'); {else} /login/login {/if}"><p style='padding-top:8px'><font style='color:white'>立即订购</font></p></a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li id='quxiao'> 
+                            <div style="position:relative;width:100px;height:100px;">
+                                <a href="{if($c_id)}/login/logout{else}/login/register{/if}"
+                                   {if($c_id)} '' {else} target="_blank"{/if}
+                                >
+                                <img src="/game/title4.png" alt="" />
+                                <div style="position:absolute;width:100px;height:100px;z-indent:2;left:0;top:0;">
+                                   <p style='padding-top:8px'><font style='color:white'>{if($c_id)}退出{else}注册{/if}</font></p>
+                                </div>
+                                </a>
+                            </div>
+                        </li> 
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="m-box">
+        <div class="m-box-hd">
+            <div class="tt">热门手游</div>
+        </div>
+        <div class="m-box-mn">
+            <ul class="m-icon-list f-cb">
+                <span class="test3">
+                    {volist name="games" id="vo"}
+                    <li>
+                        <a href="{if($c_id)}{$vo['down_url']}{else}javascript:alert('请先注册后登陆');{/if}">
+                            <img src="{$vo['img']}" alt="">
+                            <span class="name">{$vo['title']}</span>
+                        </a>
+                    </li>
+                    <li style="height:120px;display: block;margin-bottom:10px;text-align: justify;">
+                        <span style="font-size:15px">
+                        {$vo['desc']}
+                        </span>
+                    </li>
+                  {/volist}
+
+                </span>
+            </ul>
+        </div>
+    </div>
+
+    
+    <div class="m-box-mn">
+        <ul class="m-article-list">
+            <li  class="">
+                如使用中遇到问题，请在浏览器打开，或拨打客服电话：400-801-5611
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>
