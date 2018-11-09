@@ -92,6 +92,8 @@ Route::get('/login/logout','login/logout');
 //游戏前台
 Route::get('/index/game','index/game');
 Route::get('/index/detail/:id','index/detail');
+Route::get('/index/order','index/createOrder');
+Route::any('/index/callbackAction','index/callbackAction');
 
 
 
@@ -102,8 +104,6 @@ Route::get('/index/detail/:id','index/detail');
 Route::post('api/upload/img_file','api/upload/img_file');
 Route::any('api/upload/test','api/upload/test');
 
-//没有匹配到所有的路由规则后执行一条设定的路由
-Route::miss('login/lost');
 
 
 

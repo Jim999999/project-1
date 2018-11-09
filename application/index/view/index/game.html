@@ -1,46 +1,27 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-    <title>VIP包月会员专区</title>
+    <title>猎豹浏览器VIP包月会员专区</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=720,width=device-width, initial-scale=1,  initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="description" content="VIP包月会员专区" />
+    <meta name="description" content="" />
 
-    <meta name="keywords" content="VIP包月会员专区" />
+    <meta name="keywords" content="" />
 
     <link rel="stylesheet" href="/game/mobile.css" />
     <script type='text/javascript' src='/game/jquery-1.7.2.min.js'></script>
-    <style type='text/css'>
-       .logo a{
-            font-size: 1.5rem;
-            color:rgb(51, 51, 51);
-            font-family: "微软雅黑"
-          }
-        .logo { text-align: center; margin: auto; position: absolute; max-width: 600px; top: -2px; left: 0px; right: 0px; z-index: 1; }
-         .head { width: 100%; height: 50px; line-height: 50px; background: rgba(222, 188, 188, 0) none repeat scroll 0% 0%; }
-        a { text-decoration: none; color: rgb(51, 51, 51); }
-        .content { margin-top: 10px;margin-bottom:-10px; }
-        .content input{
-        width: 50%;
-        height:2rem;
-        margin: 1rem 25% 2rem;
-        color: #fff;
-        background-color: #35bf97;
-        border: none;
-        border-radius: 5px;
-        }
-    </style>
 </head>
+
 <body>
-    <div style='width:95%;text-align: center;font-size:1.5rem;font-weight:bold;padding-top:5px'>中移互联合作专区</div>
+<div class="index-hd">中移互联合作专区</div>
+<div class="index-products">
     {volist name="goods" id="vo"}
-    <div class="g-mn">
-        <div class="index-banner proportion" F="0.40625" style='padding:10px'>
-            <a href = "/index/detail/{$vo['id']}" target="_blank">
-                <img style='width:95%' src="{$vo['img']}" alt=""></a>
-        </div>
-    </div>
+    <a href="/index/detail/{$vo['id']}" title="" class="index-products-item">
+        <img src="{$vo['img']}" alt="" />
+    </a>
     {/volist}
+</div>
 </body>
+
 </html>

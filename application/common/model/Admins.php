@@ -51,11 +51,12 @@ class Admins extends Model
         if ($sameTag){
             return showMsg(0,'此昵称已被占用，请换一个！');
         }else{
+            $time = date('Y-m-d H:i:s',time());
             $this->user_name = $input['user_name'];
             $this->picture = $input['picture'];
             $this->password = md5(base64_encode($input['password']));
-            $this->created_at = time();
-            $this->updated_at = time();
+            $this->created_at = $time;
+            $this->updated_at = $time;
             $this->role_id = $input['role_id'];
             $this->status = $input['status'];
             $this->content = $input['content'];

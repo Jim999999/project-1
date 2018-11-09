@@ -77,9 +77,4 @@ class Login
     }
 
 
-    //返回miss路由的方法
-    public function lost(){
-        return view('lost');
-    }
-
 }

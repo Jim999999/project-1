@@ -37,10 +37,11 @@ class Order extends Model
             ->whereLike('phone','%'.$search.'%')
             ->where('is_del',0)
             ->limit($limit*($curr_page - 1),$limit)
+            ->order('id desc')
             ->select();
         foreach ($res as $key => $v){
             $res[$key]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-            $res[$key]['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
+            $res[$key]['pay_time'] = $v['pay_time'] ? date('Y-m-d H:i:s',$v['pay_time']) : '';
         }
         return $res;
     }
@@ -71,12 +72,27 @@ class Order extends Model
             ->whereLike('phone','%'.$search.'%')
             ->where('is_del',0)
             ->limit($limit*($curr_page - 1),$limit)
+            ->order('id desc')
             ->select();
         foreach ($res as $key => $v){
             $res[$key]['add_time'] = date('Y-m-d H:i:s',$v['add_time']);
-            $res[$key]['pay_time'] = date('Y-m-d H:i:s',$v['pay_time']);
+            $res[$key]['pay_time'] = $v['pay_time'] ? date('Y-m-d H:i:s',$v['pay_time']) : '';
         }
         return $res;
     }
+
+
+    /**
+     *  创建订单
+     * @param $data
+     * @return int
+     */
+    function createOrder($data){
+        $data['order_sn'] = date('YmdHis').rand(1000,9999);
+        $data['add_time'] = time();
+        $id = Db::table(self::getTable())->insert($data,false,true);
+        return $id;
+    }
+
 
 }

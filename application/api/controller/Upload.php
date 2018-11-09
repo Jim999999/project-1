@@ -15,6 +15,8 @@ class Upload
             // 移动到框架应用根目录/upload/ 目录下
             $info = $file->move('upload');
             if ($info){
+                $ext = strtolower(pathinfo($info->getInfo('name'), PATHINFO_EXTENSION));
+                $data['is_apk'] = $ext == 'apk' ? 1 : 0 ;
                 $fileUrl = '/upload/'.$info->getSaveName();
                 $status = 1;
                 $data['url'] = $fileUrl;

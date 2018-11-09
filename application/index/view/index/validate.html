@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <title>猎豹浏览器VIP包月会员专区</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=720,width=device-width, initial-scale=1,  initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="" />
+
+    <meta name="keywords" content="" />
+
+    <link rel="stylesheet" href="/game/mobile.css" />
+    <script type='text/javascript' src='/game/jquery-1.7.2.min.js'></script>
+</head>
+
+<body>
+    <span class="form">
+        <div class="form-hd">输入手机验证</div>
+            <div class="form-group">
+                <label>手机号码:</label>
+                <input type="text" name="phone" value="" placeholder="请输入手机号码" />
+            </div>
+            <div class="form-group" style="width:40%">
+                <label>验证码:</label>
+                <input type="text" value="" placeholder="请输入验证码" />
+            </div>
+            <span style="float:right;margin-top:-3%;padding-right:30%;" id="tip_msg">
+                <a href="javascript:;"  class="btn btn-validate">点击获取验证码</a>
+            </span>
+            <div class="form-btn">
+                <a href="javascript:;" class="btn">提交</a>
+            </div>
+            <div class="form-link">
+                <a href="javascript:history.go(-1);">返回</a>
+            </div>
+    </div>
+</body>
+<script>
+$(function () {
+    $('.btn-validate').click(function () {
+        var phone = $('input[name="phone"]').val();
+        if(phone == '') {
+            alert('手机号不能为空');return false;
+        }
+        if (!(/^1[3|4|5|7|8]\d{9}$/.test(phone))) {
+            alert('手机号格式有误');return false;
+        }
+
+
+        var t = 6;
+        $('#tip_msg').text("重新发送(" + t + ")"+'秒');
+
+        //定时器
+        var timer = setInterval(function () {
+             if(t > 0){
+                 t--;
+                 $('#tip_msg').text("重新发送(" + t + ")"+'秒');
+             }else{
+                 clearInterval(timer);
+                 tip = "<a href=\"javascript:;\"  class=\"btn btn-validate\">重新获取验证码</a>";
+                 $('#tip_msg').html(tip);
+             }
+         },1000);
+    });
+
+})
+
+</script>
+</html>
